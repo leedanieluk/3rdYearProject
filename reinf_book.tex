@@ -11,6 +11,7 @@
 \newenvironment{Figure}
 {\par\medskip\noindent\minipage{\linewidth}}
 {\endminipage\par\medskip}
+\usepackage[toc,page]{appendix}
 
 % Code Package
 \usepackage[utf8]{inputenc}
@@ -20,6 +21,8 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
 \lstdefinestyle{mystyle}{
 	backgroundcolor=\color{backcolour},   
 	commentstyle=\color{codegreen},
@@ -41,6 +44,23 @@
 \lstset{style=mystyle}
 \setlength{\parindent}{0cm}
 
+% MATLAB template
+\lstset{language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
 
 \title{COMP3200: Individual Project \\ Reinforcement Learning}
 \author{Daniel Lee \\ \href{emailto: dl2g14@ecs.soton.ac.uk}{dl2g14@ecs.soton.ac.uk}}
@@ -74,59 +94,96 @@
 		The equation states that the action-value of an action at a particular time-step is determined by the total reward accumulated, divided by the number times that it was selected in the past. In this simulation, the probability distribution that was used for the immediate actions' rewards was a Gaussian distribution $\mathcal{N}$(0,1). Due to the nature of this distribution, if an action was selected infinite times, its action-value would eventually converge to its \textit{actual} value, $q_*$.
 		
 		\subsubsection{Simulation}
-		To test this algorithm, the \textit{actual} values for each of the actions were set by selecting numbers from a $\mathcal{N}$(0,1) distribution. Following this, the action-values were initialized by adding Gaussian noise of the form $\mathcal{N}$(0,1). To test the performance of the greedy algorithm, the simulation was first run for 1000 steps from a bandit problem with 10 possible actions and with the probability distributions mentioned above.
+		To test this algorithm, the \textit{actual} values for each of the actions were set by selecting numbers from a $\mathcal{N}$(0,1) distribution. Following this, the action-values were initialized by adding Gaussian noise of the form $\mathcal{N}$(0,1). To test the performance of the greedy algorithm, the simulation was first run for 300 steps from a bandit problem with 5 possible actions and averaged over 300 bandits. In Figure (1), we can see the average return from simulating an 5-bandit problem with a range of 5 actions over 300 steps.
 		
+		\begin{Figure}
+			\centering
+				\includegraphics[width=\linewidth]{greedyplot1.eps}
+			\captionof{figure}{Greedy vs Optimal}
+		\end{Figure}
 		
+		It can be observed that the greedy method performs around 0.2 worse than the optimal solution in average. A better way of analyzing the performance of the greedy algorithm can be computed by observing the percentage of the times that the agent chose the optimal action. This is shown in Figure (2).
+		
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{greedyplot2.eps}
+			\captionof{figure}{Optimal action for greedy algorithm}
+		\end{Figure}
+		
+		It can be observed above that the agent converges to the optimal action in around 70 percent of the bandit tasks. This simulation shows that although being very simple, the greedy algorithm shows an overall positive performance.
 		
 		\subsection{$\epsilon$-Greedy}
-		Once the convolution algorithm was tested with several arbitrarily chosen kernels of different sizes and weights, a kernel with a Gaussian distribution was created. 
+		\subsubsection{Theory}
+		From the previous subsection, the theory and implementation of the greedy algorithm were shown. In this section, a variation of the greedy algorithm called $\epsilon$-Greedy will be explored. One of the issues from the $\epsilon$-Greedy was that because it always forced the agent to choose the best action-value in every state, if a particular action-value was low from the start, the agent never chose it for the rest of the simulation, therefore, never being able to discover its \textit{actual} value. To avoid this problem, a variant of this algorithm that allows the agent to \textit{explore} from time to time can be used. In every state, the agent will randomly choose an action with equal probability in all of them. This means that because if an action is chosen infinite times it converges to its textit{actual} value, this will allow the agent to have a more precise information of its options. This algorithm is called $\epsilon$-Greedy.
 		
-		The kernel was created using the method \texttt{createKernelImage} with the parameters created between Lines 2 and 4. These parameters are the size of the wanted square kernel and the the standard deviation of the weights. These parameters are directly related to each other, as shown in Line 2. Moreover, it can be seen that in Line 3 there is a manipulation that avoids assigning an even number to the \texttt{size} variable. 
+		\subsubsection{Simulation}
+		The first simulation was created by using an $\epsilon$ of 0.1. The 5-bandit problem was run for 600 steps and averaged over 300 tasks. The result was then compared to the optimal return. This can be seen in the figure below.
 		
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{egreedyplot1.eps}
+			\captionof{figure}{e-Greedy vs Optimal ($\epsilon$  = 0.1)}
+		\end{Figure}
 		
-		\section{Chapter 3}
-		\subsection{Low-Pass Filter}
-		High frequencies of an image can be removed by applying convolution using a Gaussian Kernel with the appropriate standard deviation. This process acts as a low pass filter, where the standard deviation is inversely proportional to the filter's threshold. This means that a high standard deviation will drag the filter's threshold down so that only a fewer low frequency signals can pass. Therefore, by manipulating the size and standard deviation the image's blur can be regulated.
+		From the graph above, we can see that opposed to the greedy algorithm, the average reward gets closer to the optimal average reward as the number of steps increases. In theory, as the number of steps goes to infinity, the average reward would converge to the optimal reward. \\
 		
-		An example of this is shown in the image below using a \texttt{sigma} value of 7.
+		Following this, a plot showing the percentage in which the agent converged to choose the optimal value is shown below.
 		
-
-		It can also be observed that the black padding is relatively big. This is because the kernel's size increases as a product of the standard deviation. The resulting image can be visualized with more easiness as the distance from our eyes to the image increases. The higher the blur, the more distance our eyes need to see the image with clarity. This effect is the basis of the concept of hybrid images.
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{egreedyplot2.eps}
+			\captionof{figure}{Optimal action for e-greedy algorithm ($\epsilon$  = 0.1)}
+		\end{Figure}
 		
-		\subsection{High-Pass Filter}
-		The other half of hybrid images consist of images containing high frequencies. This can be easily generated by subtracting each pixel from the original image with the corresponding pixel from the low-pass filtered image and adding 0.5, so as to move the mean from 0 to 0.5. The resulting image from applying this high pass filter to the cat image using a Gaussian kernel with \texttt{sigma} value of 5, is displayed below.
-
+		From analyzing the graph above, we can see that as we reach step 600, the optimal action percentage reaches around 90 percent. This is because we allow the agent to explore for 10 percent of the time. This means that although 10 percent of the time the action might not receive the maximum immediate reward, it will aid the agent to get a more precise estimate of the real value. \\
 		
-		From observing the image above, we can see the small details of the image whereas in Figure 2, we see very little. This is the expected result from applying these filters. High frequencies illustrate the details and sudden changes in the pixels of the image whereas the low frequencies focus on showing the general form of the image.
+		For the last e-greedy simulation, an epsilon value of 0.01 was used. The first simulation compares the average return of this particular e-greedy algorithm against the optimal return.
 		
-		\subsection{Combining Low and High frequency images}
-		By superimposing images filtered by a high and a low pass filter, we can generate hybrid images. Hybrid images makes use of the properties of high and low pass filtered images, where one is more visible to the human eyes in a short distance and the other is more visible from a large distance, respectively.
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{egreedyplot3.eps}
+			\captionof{figure}{e-Greedy vs Optimal ($\epsilon$  = 0.01)}
+		\end{Figure}
 		
-		The first hybrid image that was generated and tested was the dog and cat image pair. The \texttt{sigma} values for these Guassian Kernels were selected with the objective of making the high pass image visible from the average distance from the eyes of a user and a laptop screen, and the low pass filter visible when the image was 4 times as small as the original image. With this objective in mind, the arbitrary \texttt{sigma} values chosen for the low pass and high pass filter kernels were 7 and 5, respectively. The resulting hybrid image can be seen below.
-
-		For this hybrid image, the dog image was passed through the low-pass filter and the cat image through the high-pass filter. Therefore, at first sight, the image seems to be showing a cat. As the distance from the image and the eyes increases, the image starts becoming to look similar to a dog. This effect it shown in Figure 5. 
-
+		From this graph, we can see that the average return increases steadily. If the number of steps is increased, this version of the e-greedy algorithm will outperform the other ones and eventually converge to an accuracy of optimal action to 99.9 percent.
 		
-		As stated above, Figure 5 shows that the image that is 4 times as small as the original image (second image from right) shows the low-pass filtered image, in this case, the image of the dog. \\
-		By using the same proportion constant, \textit{k}, between the image area and \texttt{sigma} values from the dog and cat images, the \texttt{sigma} values for the low pass and high pass filters' kernels were calculated for the rest of the pair of images. The proportion constant was calculated in the following form:
-		
-
-		\section{Results}
-		In this section, the resulting hybrid images and variations of its size, using values of \texttt{sigmas} calculated from the constant, \textit{k}, for the rest of the image pairs are displayed.
-		
-
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{egreedyplot4.eps}
+			\captionof{figure}{Optimal action for e-greedy algorithm ($\epsilon$  = 0.01)}
+		\end{Figure}
 	
-%		\begin{Figure}
-%			\centering
-%			\includegraphics[width=\linewidth]{image_7}
-%			\captionof{figure}{Bird and Plane}
-%		\end{Figure}
+		A more helpful graph is plotted above and show how how the optimal action percentage is steadily increased. Although is not as fast as using an epsilon 0.1, again, in the long run this configuration will outperform the previous configuration.
 		
-
-		\section{Conclusion}
-		From our result, we can see that some pairs have a more convincing effect that others. This is because there are many factors that are involved in hybrid images, such as, image size, Guassian Kernel distribution, image positioning and the general human vision uncertainty for each different person. Moreover, because the proportional constant, \textit{k}, calculated at the beginning, was computed by choosing arbitrary values of \texttt{sigmas} for the dog and cat images' \texttt{sigma}, based on my personal judgment, this might have led to a non-optimal implementation.
+		\section{Dynamic Programming}
+		\subsection{Policy Evaluation}
+		The idea behind policy evaluation is to find the state-value for all the possible states using an arbitrary policy $\pi$. To compute the state-value we use one of Bellman's equations:
 		
-	\end{multicols}
+		\begin{equation}
+			v_{k+1}(s) = \mathbf{E}_\pi[R_{t+1} + \gamma v_k(S_{t+1}) | S_t = s]
+		\end{equation}
+		
+		This equation computes the estimated state-value for the following time step using information from the current state. This method is called full back up, because it uses the information in the values of all the available states to estimate a state-value.
+		
+		\subsection{Policy Iteration}
+		In order to converge to the $v_\pi$ of each state we can iterate over the episodic system many times. This concept is called \textit{policy iteration}.
+		
+		\subsubsection{Gridworld example}
+		Policy iteration can be applied in the gridworld scenario.
+		
+		
+		
+		
+		\end{multicols}
+		\pagebreak
+	
+		% Start of APPENDIX
+		\begin{appendices}
+		\chapter{Greedy function MATLAB code}
+			\lstinputlisting{greedy.m}
+		\chapter{e-Greedy function MATLAB code}
+			\lstinputlisting{egreedy.m}
+		\end{appendices}
 \end{document}
 
 

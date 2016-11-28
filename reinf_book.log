@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 NOV 2016 22:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  28 NOV 2016 20:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -245,6 +245,12 @@ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 ))
 \Gin@req@height=\dimen131
 \Gin@req@width=\dimen132
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count111
+\c@@ppsavesec=\count112
+\c@@ppsaveapp=\count113
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
@@ -563,23 +569,23 @@ Now handling font encoding PD1 ...
    defining Unicode char U+2423 (decimal 9251)
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count111
+\lst@mode=\count114
 \lst@gtempboxa=\box52
 \lst@token=\toks18
-\lst@length=\count112
+\lst@length=\count115
 \lst@currlwidth=\dimen133
-\lst@column=\count113
-\lst@pos=\count114
+\lst@column=\count116
+\lst@pos=\count117
 \lst@lostspace=\dimen134
 \lst@width=\dimen135
-\lst@newlines=\count115
-\lst@lineno=\count116
+\lst@newlines=\count118
+\lst@lineno=\count119
 \lst@maxwidth=\dimen136
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count117
-\lst@skipnumbers=\count118
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
 \lst@framebox=\box53
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
@@ -595,25 +601,28 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 144.
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
 (./reinf_book.aux)
 \openout1 = `reinf_book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 49.
+Package hyperref Info: Link coloring OFF on input line 69.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -621,11 +630,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count119
+\c@section@level=\count122
 )
-LaTeX Info: Redefining \ref on input line 49.
-LaTeX Info: Redefining \pageref on input line 49.
-LaTeX Info: Redefining \nameref on input line 49.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
 
 (./reinf_book.out) (./reinf_book.out)
 \@outlinefile=\write3
@@ -671,16 +680,16 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
+\scratchcounter=\count123
 \scratchdimen=\dimen137
 \scratchbox=\box55
-\nofMPsegments=\count121
-\nofMParguments=\count122
+\nofMPsegments=\count124
+\nofMParguments=\count125
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count123
+\MPscratchCnt=\count126
 \MPscratchDim=\dimen138
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
+\MPnumerator=\count127
+\makeMPintoPDFobject=\count128
 \everyMPtoPDFconversion=\toks20
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -697,79 +706,245 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count126
+\c@lstlisting=\count129
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 51.
+(Font)              <12> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 51.
+(Font)              <8> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 51.
+(Font)              <6> on input line 71.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 58.
+(Font)              <7> on input line 78.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 58.
+(Font)              <5> on input line 78.
+Package epstopdf Info: Source file: <greedyplot1.eps>
+(epstopdf)                    date: 2016-11-28 18:43:03
+(epstopdf)                    size: 24929 bytes
+(epstopdf)             Output file: <greedyplot1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-11-28 18:49:41
+(epstopdf)                    size: 13262 bytes
+(epstopdf)             Command: <repstopdf --outfile=greedyplot1-eps-converted-
+to.pdf greedyplot1.eps>
+(epstopdf)             \includegraphics on input line 101.
+Package epstopdf Info: Output file is already uptodate.
+
+<greedyplot1-eps-converted-to.pdf, id=49, 485.815pt x 412.54124pt>
+File: greedyplot1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use greedyplot1-eps-converted-to.pdf>
+Package pdftex.def Info: greedyplot1-eps-converted-to.pdf used on input line 10
+1.
+(pdftex.def)             Requested size: 220.65112pt x 187.36664pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 83.
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 102.
+See the caption package documentation for explanation.
+
+Package epstopdf Info: Source file: <greedyplot2.eps>
+(epstopdf)                    date: 2016-11-28 18:43:05
+(epstopdf)                    size: 19499 bytes
+(epstopdf)             Output file: <greedyplot2-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-11-28 18:49:42
+(epstopdf)                    size: 10274 bytes
+(epstopdf)             Command: <repstopdf --outfile=greedyplot2-eps-converted-
+to.pdf greedyplot2.eps>
+(epstopdf)             \includegraphics on input line 109.
+Package epstopdf Info: Output file is already uptodate.
+<greedyplot2-eps-converted-to.pdf, id=50, 483.8075pt x 412.54124pt>
+File: greedyplot2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use greedyplot2-eps-converted-to.pdf>
+Package pdftex.def Info: greedyplot2-eps-converted-to.pdf used on input line 10
+9.
+(pdftex.def)             Requested size: 220.65112pt x 188.1472pt.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\epsilon' on input line 83.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 83.
-
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 86.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 6348) in paragraph at lines 86--87
-[]\OT1/cmr/m/n/10 The ker-nel was cre-ated us-ing the method
- []
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 110.
+See the caption package documentation for explanation.
 
 [1
 
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./greed
+yplot1-eps-converted-to.pdf>]
 
-[2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
- (./reinf_book.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 115.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\epsilon' on input line 115.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 115.
+
+Package epstopdf Info: Source file: <egreedyplot1.eps>
+(epstopdf)                    date: 2016-11-28 19:41:13
+(epstopdf)                    size: 34588 bytes
+(epstopdf)             Output file: <egreedyplot1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-11-28 19:51:35
+(epstopdf)                    size: 17269 bytes
+(epstopdf)             Command: <repstopdf --outfile=egreedyplot1-eps-converted
+-to.pdf egreedyplot1.eps>
+(epstopdf)             \includegraphics on input line 124.
+Package epstopdf Info: Output file is already uptodate.
+<egreedyplot1-eps-converted-to.pdf, id=80, 485.815pt x 412.54124pt>
+File: egreedyplot1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use egreedyplot1-eps-converted-to.pdf>
+Package pdftex.def Info: egreedyplot1-eps-converted-to.pdf used on input line 1
+24.
+(pdftex.def)             Requested size: 220.65112pt x 187.36664pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 125.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+Package epstopdf Info: Source file: <egreedyplot2.eps>
+(epstopdf)                    date: 2016-11-28 19:41:14
+(epstopdf)                    size: 24495 bytes
+(epstopdf)             Output file: <egreedyplot2-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-11-28 19:51:35
+(epstopdf)                    size: 11781 bytes
+(epstopdf)             Command: <repstopdf --outfile=egreedyplot2-eps-converted
+-to.pdf egreedyplot2.eps>
+(epstopdf)             \includegraphics on input line 134.
+Package epstopdf Info: Output file is already uptodate.
+<egreedyplot2-eps-converted-to.pdf, id=81, 488.82625pt x 412.54124pt>
+File: egreedyplot2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use egreedyplot2-eps-converted-to.pdf>
+Package pdftex.def Info: egreedyplot2-eps-converted-to.pdf used on input line 1
+34.
+(pdftex.def)             Requested size: 220.65112pt x 186.22096pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 135.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+Package epstopdf Info: Source file: <egreedyplot3.eps>
+(epstopdf)                    date: 2016-11-28 20:15:12
+(epstopdf)                    size: 35210 bytes
+(epstopdf)             Output file: <egreedyplot3-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-11-28 20:25:43
+(epstopdf)                    size: 17446 bytes
+(epstopdf)             Command: <repstopdf --outfile=egreedyplot3-eps-converted
+-to.pdf egreedyplot3.eps>
+(epstopdf)             \includegraphics on input line 144.
+Package epstopdf Info: Output file is already uptodate.
+<egreedyplot3-eps-converted-to.pdf, id=82, 485.815pt x 412.54124pt>
+File: egreedyplot3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use egreedyplot3-eps-converted-to.pdf>
+Package pdftex.def Info: egreedyplot3-eps-converted-to.pdf used on input line 1
+44.
+(pdftex.def)             Requested size: 220.65112pt x 187.36664pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 145.
+See the caption package documentation for explanation.
+
+[2 <./greedyplot2-eps-converted-to.pdf> <./egreedyplot1-eps-converted-to.pdf> <
+./egreedyplot2-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <egreedyplot4.eps>
+(epstopdf)                    date: 2016-11-28 20:15:13
+(epstopdf)                    size: 24910 bytes
+(epstopdf)             Output file: <egreedyplot4-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-11-28 20:31:00
+(epstopdf)                    size: 11837 bytes
+(epstopdf)             Command: <repstopdf --outfile=egreedyplot4-eps-converted
+-to.pdf egreedyplot4.eps>
+(epstopdf)             \includegraphics on input line 152.
+Package epstopdf Info: Output file is already uptodate.
+
+<egreedyplot4-eps-converted-to.pdf, id=115, 483.8075pt x 412.54124pt>
+File: egreedyplot4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use egreedyplot4-eps-converted-to.pdf>
+Package pdftex.def Info: egreedyplot4-eps-converted-to.pdf used on input line 1
+52.
+(pdftex.def)             Requested size: 220.65112pt x 188.1472pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 153.
+See the caption package documentation for explanation.
+
+[3 <./egreedyplot3-eps-converted-to.pdf> <./egreedyplot4-eps-converted-to.pdf>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 178.
+(./greedy.m
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 7.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
+
+[4]) (./egreedy.m [5]
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 62.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 62.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
+
+(./reinf_book.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
 Package rerunfilecheck Info: File `reinf_book.out' has not changed.
-(rerunfilecheck)             Checksum: 3D70A591E2D7EC6A1369B1E0B5B4703F;645.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
+(rerunfilecheck)             Checksum: FE4A63959DBC22917AB4A5C1B6F3EB11;662.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
  ) 
 Here is how much of TeX's memory you used:
- 8362 strings out of 493014
- 125270 string characters out of 6133351
- 229038 words of memory out of 5000000
- 11825 multiletter control sequences out of 15000+600000
- 8756 words of font info for 31 fonts, out of 8000000 for 9000
+ 9661 strings out of 493014
+ 141137 string characters out of 6133351
+ 486108 words of memory out of 5000000
+ 12898 multiletter control sequences out of 15000+600000
+ 10087 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,6n,38p,608b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/201
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2016/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-dis
-t/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on reinf_book.pdf (2 pages, 152499 bytes).
+ 36i,6n,40p,985b,2384s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on reinf_book.pdf (6 pages, 270364 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 450 PDF objects out of 1000 (max. 8388607)
+ 402 compressed objects within 5 object streams
+ 217 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
