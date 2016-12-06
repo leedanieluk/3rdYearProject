@@ -1,4 +1,9 @@
-% Latex File for Computer Vision Coursework 2
+% Latex File for The Progress Report
+% Keywords cmd + F
+% Page 1: TitleBookmark
+% Page 2: AbstractBookmark
+% Page 3: ContentsBookmark
+
 \documentclass[a4paper]{article}
 
 % Packages
@@ -62,15 +67,38 @@
 	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
 
-\title{COMP3200: Individual Project \\ Reinforcement Learning}
-\author{Daniel Lee \\ \href{emailto: dl2g14@ecs.soton.ac.uk}{dl2g14@ecs.soton.ac.uk}}
-
+%------------------------------------------------------------------------------------------%
+%-------------------------------DOCUMENT BEGINS--------------------------------------------%
+%------------------------------------------------------------------------------------------%
 
 \begin{document}
-	\tableofcontents
+	
+	% 1. TitleBookmark
+	\begin{titlepage}
+		\vspace*{\fill}
+		\begin{center}
+		\centering
+		{\Huge Electronics and Computer Science \par}
+		{\Huge Faculty of Physical Sciences and Engineering \par}
+		{\Huge University of Southampton \par}
+		\hfill \break
+		{\Large Daniel Lee \par}
+		{\Large \today \par}
+		\hfill \break
+		{\huge\bfseries Linear Quadratic Regulation using Reinforcement Learning \par}
+		\hfill \break
+		{\Large Project supervisor: Dr Bing Chu \par}
+		{\Large Second examiner: Dr Mohammed El-Hajjar \par}
+		\hfill \break
+		{\large A progress report submitted for the award of \\
+			\bfseries MEng Electronic Engineering with Artificial Intelligence \par}
+		\end{center}
+		\vspace*{\fill}
+	\end{titlepage}
 	\pagebreak
 	
-	\maketitle
+	% 2. AbstractBookmark
+	\tableofcontents
 	
 	\begin{multicols}{2}[
 		\section*{Motivation}
@@ -98,20 +126,9 @@
 		
 		\subsubsection{Simulation}
 		To test this algorithm, the \textit{actual} values for each of the actions were set by selecting numbers from a $\mathcal{N}$(0,1) distribution. Following this, the action-values were initialized by adding Gaussian noise of the form $\mathcal{N}$(0,1). To test the performance of the greedy algorithm, the simulation was first run for 300 steps from a bandit problem with 5 possible actions and averaged over 300 bandits. In Figure (1), we can see the average return from simulating an 5-bandit problem with a range of 5 actions over 300 steps.
-		
-		\begin{Figure}
-			\centering
-				\includegraphics[width=\linewidth]{greedyplot1.eps}
-			\captionof{figure}{Greedy vs Optimal}
-		\end{Figure}
-		
+
 		It can be observed that the greedy method performs around 0.2 worse than the optimal solution in average. A better way of analyzing the performance of the greedy algorithm can be computed by observing the percentage of the times that the agent chose the optimal action. This is shown in Figure (2).
-		
-		\begin{Figure}
-			\centering
-			\includegraphics[width=\linewidth]{greedyplot2.eps}
-			\captionof{figure}{Optimal action for greedy algorithm}
-		\end{Figure}
+
 		
 		It can be observed above that the agent converges to the optimal action in around 70 percent of the bandit tasks. This simulation shows that although being very simple, the greedy algorithm shows an overall positive performance.
 		
@@ -121,40 +138,21 @@
 		
 		\subsubsection{Simulation}
 		The first simulation was created by using an $\epsilon$ of 0.1. The 5-bandit problem was run for 600 steps and averaged over 300 tasks. The result was then compared to the optimal return. This can be seen in the figure below.
-		
-		\begin{Figure}
-			\centering
-			\includegraphics[width=\linewidth]{egreedyplot1.eps}
-			\captionof{figure}{e-Greedy vs Optimal ($\epsilon$  = 0.1)}
-		\end{Figure}
+
 		
 		From the graph above, we can see that opposed to the greedy algorithm, the average reward gets closer to the optimal average reward as the number of steps increases. In theory, as the number of steps goes to infinity, the average reward would converge to the optimal reward. \\
 		
 		Following this, a plot showing the percentage in which the agent converged to choose the optimal value is shown below.
 		
-		\begin{Figure}
-			\centering
-			\includegraphics[width=\linewidth]{egreedyplot2.eps}
-			\captionof{figure}{Optimal action for e-greedy algorithm ($\epsilon$  = 0.1)}
-		\end{Figure}
+
 		
 		From analyzing the graph above, we can see that as we reach step 600, the optimal action percentage reaches around 90 percent. This is because we allow the agent to explore for 10 percent of the time. This means that although 10 percent of the time the action might not receive the maximum immediate reward, it will aid the agent to get a more precise estimate of the real value. \\
 		
 		For the last e-greedy simulation, an epsilon value of 0.01 was used. The first simulation compares the average return of this particular e-greedy algorithm against the optimal return.
 		
-		\begin{Figure}
-			\centering
-			\includegraphics[width=\linewidth]{egreedyplot3.eps}
-			\captionof{figure}{e-Greedy vs Optimal ($\epsilon$  = 0.01)}
-		\end{Figure}
 		
 		From this graph, we can see that the average return increases steadily. If the number of steps is increased, this version of the e-greedy algorithm will outperform the other ones and eventually converge to an accuracy of optimal action to 99.9 percent.
 		
-		\begin{Figure}
-			\centering
-			\includegraphics[width=\linewidth]{egreedyplot4.eps}
-			\captionof{figure}{Optimal action for e-greedy algorithm ($\epsilon$  = 0.01)}
-		\end{Figure}
 	
 		A more helpful graph is plotted above and show how how the optimal action percentage is steadily increased. Although is not as fast as using an epsilon 0.1, again, in the long run this configuration will outperform the previous configuration.
 		
@@ -181,12 +179,12 @@
 		\pagebreak
 	
 		% Start of APPENDIX
-		\begin{appendices}
-		\chapter{Greedy function MATLAB code}
-			\lstinputlisting{greedy.m}
-		\chapter{e-Greedy function MATLAB code}
-			\lstinputlisting{egreedy.m}
-		\end{appendices}
+%		\begin{appendices}
+%		\chapter{Greedy function MATLAB code}
+%			\lstinputlisting{greedy.m}
+%		\chapter{e-Greedy function MATLAB code}
+%			\lstinputlisting{egreedy.m}
+%		\end{appendices}
 \end{document}
 
 
