@@ -17,6 +17,7 @@
 {\par\medskip\noindent\minipage{\linewidth}}
 {\endminipage\par\medskip}
 \usepackage[toc,page]{appendix}
+\usepackage{etoolbox}
 
 % Code Package
 \usepackage[utf8]{inputenc}
@@ -48,6 +49,11 @@
 }
 \lstset{style=mystyle}
 \setlength{\parindent}{0cm}
+\patchcmd{\titlepage}
+{\thispagestyle{empty}}
+{\thispagestyle{plain}}
+{}
+{}
 
 % MATLAB template
 \lstset{language=Matlab,%
@@ -96,16 +102,25 @@
 		\vspace*{\fill}
 	\end{titlepage}
 	\pagebreak
+	\setcounter{page}{2}
 	
 	% 2. AbstractBookmark
+	\section*{Abstract}
+	The purpose of this project is to show the application of dynamic programming methods from \textit{Reinforcement Learning}, based on \textit{Bellman equation}, into discrete-time \textit{Linear Quadratic Regulation (LQR)} control theory systems. The progress that has been achieved so far includes the background reading of the core topics, numerical derivations of the Bellman equation, simulations on \textit{Greedy} and \textit{$\epsilon$-Greedy} algorithms and mathematical analysis of \textit{policy evaluation}, \textit{policy iteration} and \textit{policy improvement} in dynamic systems. Moreover, the \textit{Bellman Optimality Equation} for LQR systems was derived by solving the resulting \textit{Algebraic Riccati Equation}. FINISH LAST
+	
+	\pagebreak
+	
+	% 3. ContentsBookmark
 	\tableofcontents
 	
+	\pagebreak
+	
 	\begin{multicols}{2}[
-		\section*{Motivation}
-		The purpose of this paper is to document every relevant work that I do during my background research.
+		\section*{Project description}
+		FINISH LAST
 		]
 		
-		\section{Bandit Problems}
+		\section{Background Research}
 		In the classic bandit problem, the agent is given a limited set of actions to choose from at every time-step. Each action provides the agent with its respective stochastic reward from a particular distribution. The objective is to collect as much total reward, or \textit{return}, from the limited amount of available time-steps. In this section, the popular greedy and $\epsilon$-greedy algorithms will be implemented to tackle this task and the resulting performances will be compared.
 
 		\subsection{Greedy}
