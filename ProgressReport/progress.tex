@@ -18,6 +18,8 @@
 {\endminipage\par\medskip}
 \usepackage[toc,page]{appendix}
 \usepackage{etoolbox}
+\usepackage{biblatex}
+\bibliography{reference}
 
 % Code Package
 \usepackage[utf8]{inputenc}
@@ -73,6 +75,7 @@
 	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
 
+
 %------------------------------------------------------------------------------------------%
 %-------------------------------DOCUMENT BEGINS--------------------------------------------%
 %------------------------------------------------------------------------------------------%
@@ -121,11 +124,13 @@
 		]
 		
 		\section{Background Research}
-		In the classic bandit problem, the agent is given a limited set of actions to choose from at every time-step. Each action provides the agent with its respective stochastic reward from a particular distribution. The objective is to collect as much total reward, or \textit{return}, from the limited amount of available time-steps. In this section, the popular greedy and $\epsilon$-greedy algorithms will be implemented to tackle this task and the resulting performances will be compared.
-
-		\subsection{Greedy}
-		\subsubsection{Theory}
-		As mentioned above, the agent can choose an action from a limited range of options. The greedy algorithm leads the agent to choose the action that has the highest \textit{action-value} at every single time-step. This can be numerically represented in this way: 
+		With the aim of getting familiar with the core topics of this project, a great portion of the available time was invested in reading the appropriate literature. For the topic of reinforcement learning, the main source of reference was the book titled `\textit{Reinforcement Learning: An Introduction}' by Sutton and Barto \cite{DUMMY:1}. With respect to Linear Quadratic Regulation, the research was based on the article `\textit{Reinforcement Learning and Feedback Control}' by Lewis, Vrabie and Vamvoudakis [2].
+		
+		\subsection{Reinforcement Learning}
+		The concept of reinforcement learning describes the iterative computational process that an agent executes by interacting with the given environment. It provides the agent with mathematical algorithms to maximize the long-term return by taking optimal decisions from a set of states and actions described by the environment. 
+		
+		\subsubsection{Components}
+		The reinforcement learning system can be described with "four main elements: a policy, a reward function, a value function and a model of the environment" [3].
 		
 		\begin{equation}
 			Q_t(A_t^*) = max_a Q_t(a)
@@ -191,7 +196,7 @@
 		
 		
 		\end{multicols}
-		\pagebreak
+		\newpage
 	
 		% Start of APPENDIX
 %		\begin{appendices}
@@ -200,6 +205,10 @@
 %		\chapter{e-Greedy function MATLAB code}
 %			\lstinputlisting{egreedy.m}
 %		\end{appendices}
+
+
+\printbibliography[title=References]
+
 \end{document}
 
 

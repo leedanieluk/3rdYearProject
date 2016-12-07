@@ -1,0 +1,236 @@
+% Latex File for The Progress Report
+% Keywords cmd + F
+% Page 1: TitleBookmark
+% Page 2: AbstractBookmark
+% Page 3: ContentsBookmark
+
+\documentclass[a4paper]{article}
+
+% Packages
+\usepackage{hyperref}
+\usepackage[a4paper, total={6.5in,10in}]{geometry}
+\usepackage{multicol,caption}
+\setlength{\columnsep}{1cm}
+\usepackage{courier}
+\usepackage{graphicx}
+\newenvironment{Figure}
+{\par\medskip\noindent\minipage{\linewidth}}
+{\endminipage\par\medskip}
+\usepackage[toc,page]{appendix}
+\usepackage{etoolbox}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{csquotes}
+
+% Code Package
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\setlength{\parindent}{0cm}
+\patchcmd{\titlepage}
+{\thispagestyle{empty}}
+{\thispagestyle{plain}}
+{}
+{}
+
+% MATLAB template
+\lstset{language=Matlab,%
+	%basicstyle=\color{red},
+	breaklines=true,%
+	morekeywords={matlab2tikz},
+	keywordstyle=\color{blue},%
+	morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+	identifierstyle=\color{black},%
+	stringstyle=\color{mylilas},
+	commentstyle=\color{mygreen},%
+	showstringspaces=false,%without this there will be a symbol in the places where there is a space
+	numbers=left,%
+	numberstyle={\tiny \color{black}},% size of the numbers
+	numbersep=9pt, % this defines how far the numbers are from the text
+	emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+	%emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+
+%------------------------------------------------------------------------------------------%
+%-------------------------------DOCUMENT BEGINS--------------------------------------------%
+%------------------------------------------------------------------------------------------%
+
+\begin{document}
+	
+	% 1. TitleBookmark
+	\begin{titlepage}
+		\vspace*{\fill}
+		\begin{center}
+		\centering
+		{\Huge Electronics and Computer Science \par}
+		{\Huge Faculty of Physical Sciences and Engineering \par}
+		{\Huge University of Southampton \par}
+		\hfill \break
+		{\Large Daniel Lee \par}
+		{\Large \today \par}
+		\hfill \break
+		{\huge\bfseries Linear Quadratic Regulation using Reinforcement Learning \par}
+		\hfill \break
+		{\Large Project supervisor: Dr Bing Chu \par}
+		{\Large Second examiner: Dr Mohammed El-Hajjar \par}
+		\hfill \break
+		{\large A progress report submitted for the award of \\
+			\bfseries MEng Electronic Engineering with Artificial Intelligence \par}
+		\end{center}
+		\vspace*{\fill}
+	\end{titlepage}
+	\pagebreak
+	\setcounter{page}{2}
+	
+	% 2. AbstractBookmark
+	\section*{Abstract}
+	The purpose of this project is to show the application of dynamic programming methods from \textit{Reinforcement Learning}, based on \textit{Bellman equation}, into discrete-time \textit{Linear Quadratic Regulation (LQR)} control theory systems. The progress that has been achieved so far includes the background reading of the core topics, numerical derivations of the Bellman equation, simulations on \textit{Greedy} and \textit{$\epsilon$-Greedy} algorithms and mathematical analysis of \textit{policy evaluation}, \textit{policy iteration} and \textit{policy improvement} in dynamic systems. Moreover, the \textit{Bellman Optimality Equation} for LQR systems was derived by solving the resulting \textit{Algebraic Riccati Equation}. FINISH LAST
+	
+	\pagebreak
+	
+	% 3. ContentsBookmark
+	\tableofcontents
+	
+	\pagebreak
+	
+	\begin{multicols}{2}[
+		\section*{Project description}
+		FINISH LAST
+		]
+		
+		\section{Background Research}
+		With the purpose of getting familiar with the core topics of this project, a great portion of the available time was invested in reading the appropriate literature. For the topic of reinforcement learning, the main source of reference was the book titled \enquote*{\textit{Reinforcement Learning: An Introduction}} by Sutton and Barto \cite{reinfbook}. With respect to Linear Quadratic Regulation, the research was mainly based on the article \enquote*{\textit{Reinforcement Learning and Feedback Control}} by Lewis, Vrabie and Vamvoudakis \cite{lqrart}.
+		
+		\section{Reinforcement Learning}
+		The concept of reinforcement learning describes the computational process that an agent executes when interacting with the given environment. It provides the \textit{agent} with mathematical algorithms to maximize the long-term return by taking optimal decisions from a set of states and actions that belong to the given \textit{environment}.
+		
+		\subsection{System Elements}
+		The reinforcement learning system is composed of three main elements: \enquote{a \textit{policy}, a \textit{reward} and a \textit{value}} \cite{reinfel}. A policy maps the actions that the agent should select to the states of the environment. In simpler words, it determines the way in which the agent should behave in different situations. When an agent selects an action from a state, it collects a numerical value called reward. A reward quantitatively expresses how positive the performance of the action taken at a state was. While a reward represents an immediate acquisition, the \textit{value} of a state provides the information of the total expected reward, or \textit{return}, of the state or state-action pair. Therefore, it can be considered as a quantity that expresses how much the agent can benefit in the long-term.
+		
+		\subsection{K-arm Bandit Problem}
+		A good example that illustrates these concepts in practice is the \textit{k-arm bandit problem}. In this scenario, the aim of the agent is to maximize its return by pulling the desired arm, among the k number of arms, from the bandit, at each finite discrete step, or turn.  
+		
+		To solve this problem, two simple methods can be implemented. These are the \textit{greedy} method and the \textit{$\epsilon$-greedy} method.
+		
+		\subsubsection{Greedy Method}
+		
+		
+		
+		\begin{equation}
+			Q_t(A_t^*) = max_a Q_t(a)
+		\end{equation}
+		
+		The action-value of an action can be computed from the following equation (2):
+		
+		\begin{equation}
+			Q_t(a) = \frac{R_1 + R_2 + ... + R_{K_a}}{K_a}
+		\end{equation}
+
+		The equation states that the action-value of an action at a particular time-step is determined by the total reward accumulated, divided by the number times that it was selected in the past. In this simulation, the probability distribution that was used for the immediate actions' rewards was a Gaussian distribution $\mathcal{N}$(0,1). Due to the nature of this distribution, if an action was selected infinite times, its action-value would eventually converge to its \textit{actual} value, $q_*$.
+		
+		\subsubsection{Simulation}
+		To test this algorithm, the \textit{actual} values for each of the actions were set by selecting numbers from a $\mathcal{N}$(0,1) distribution. Following this, the action-values were initialized by adding Gaussian noise of the form $\mathcal{N}$(0,1). To test the performance of the greedy algorithm, the simulation was first run for 300 steps from a bandit problem with 5 possible actions and averaged over 300 bandits. In Figure (1), we can see the average return from simulating an 5-bandit problem with a range of 5 actions over 300 steps.
+
+		It can be observed that the greedy method performs around 0.2 worse than the optimal solution in average. A better way of analyzing the performance of the greedy algorithm can be computed by observing the percentage of the times that the agent chose the optimal action. This is shown in Figure (2).
+
+		
+		It can be observed above that the agent converges to the optimal action in around 70 percent of the bandit tasks. This simulation shows that although being very simple, the greedy algorithm shows an overall positive performance.
+		
+		\subsection{$\epsilon$-Greedy}
+		\subsubsection{Theory}
+		From the previous subsection, the theory and implementation of the greedy algorithm were shown. In this section, a variation of the greedy algorithm called $\epsilon$-Greedy will be explored. One of the issues from the $\epsilon$-Greedy was that because it always forced the agent to choose the best action-value in every state, if a particular action-value was low from the start, the agent never chose it for the rest of the simulation, therefore, never being able to discover its \textit{actual} value. To avoid this problem, a variant of this algorithm that allows the agent to \textit{explore} from time to time can be used. In every state, the agent will randomly choose an action with equal probability in all of them. This means that because if an action is chosen infinite times it converges to its textit{actual} value, this will allow the agent to have a more precise information of its options. This algorithm is called $\epsilon$-Greedy.
+		
+		\subsubsection{Simulation}
+		The first simulation was created by using an $\epsilon$ of 0.1. The 5-bandit problem was run for 600 steps and averaged over 300 tasks. The result was then compared to the optimal return. This can be seen in the figure below.
+
+		
+		From the graph above, we can see that opposed to the greedy algorithm, the average reward gets closer to the optimal average reward as the number of steps increases. In theory, as the number of steps goes to infinity, the average reward would converge to the optimal reward. \\
+		
+		Following this, a plot showing the percentage in which the agent converged to choose the optimal value is shown below.
+		
+
+		
+		From analyzing the graph above, we can see that as we reach step 600, the optimal action percentage reaches around 90 percent. This is because we allow the agent to explore for 10 percent of the time. This means that although 10 percent of the time the action might not receive the maximum immediate reward, it will aid the agent to get a more precise estimate of the real value. \\
+		
+		For the last e-greedy simulation, an epsilon value of 0.01 was used. The first simulation compares the average return of this particular e-greedy algorithm against the optimal return.
+		
+		
+		From this graph, we can see that the average return increases steadily. If the number of steps is increased, this version of the e-greedy algorithm will outperform the other ones and eventually converge to an accuracy of optimal action to 99.9 percent.
+		
+	
+		A more helpful graph is plotted above and show how how the optimal action percentage is steadily increased. Although is not as fast as using an epsilon 0.1, again, in the long run this configuration will outperform the previous configuration.
+		
+		\section{Dynamic Programming}
+		\subsection{Policy Evaluation}
+		The idea behind policy evaluation is to find the state-value for all the possible states using an arbitrary policy $\pi$. To compute the state-value we use one of Bellman's equations:
+		
+		\begin{equation}
+			v_{k+1}(s) = \mathbf{E}_\pi[R_{t+1} + \gamma v_k(S_{t+1}) | S_t = s]
+		\end{equation}
+		
+		This equation computes the estimated state-value for the following time step using information from the current state. This method is called full back up, because it uses the information in the values of all the available states to estimate a state-value.
+		
+		\subsection{Policy Iteration}
+		In order to converge to the $v_\pi$ of each state we can iterate over the episodic system many times. This concept is called \textit{policy iteration}.
+		
+		\subsubsection{Gridworld example}
+		Policy iteration can be applied in the gridworld scenario.
+		
+		
+		
+		
+		\end{multicols}
+		\newpage
+	
+		% Start of APPENDIX
+%		\begin{appendices}
+%		\chapter{Greedy function MATLAB code}
+%			\lstinputlisting{greedy.m}
+%		\chapter{e-Greedy function MATLAB code}
+%			\lstinputlisting{egreedy.m}
+%		\end{appendices}
+
+
+
+\bibliographystyle{ieeetr}
+
+\bibliography{biblio}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
