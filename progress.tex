@@ -110,7 +110,7 @@
 	
 	% 2. AbstractBookmark
 	\section*{Abstract}
-	The purpose of this project is to show the application of dynamic programming methods from \textit{Reinforcement Learning}, based on \textit{Bellman equation}, into discrete-time \textit{Linear Quadratic Regulation (LQR)} control theory systems. The progress that has been achieved so far includes the background reading of the core topics, numerical derivations of the Bellman equation, simulations on \textit{Greedy} and \textit{$\epsilon$-Greedy} algorithms and mathematical analysis of \textit{policy evaluation}, \textit{policy iteration} and \textit{policy improvement} in dynamic systems. Moreover, the \textit{Bellman Optimality Equation} for LQR systems was derived by solving the resulting \textit{Algebraic Riccati Equation}. FINISH LAST
+	The purpose of this project is to show the application of dynamic programming methods from \textit{Reinforcement Learning}, based on \textit{Bellman equation}, into discrete-time \textit{Linear Quadratic Regulation (LQR)} control theory systems. The progress that has been achieved so far includes the background reading of the core topics, numerical derivations of the Bellman equation, simulations on \textit{Greedy} and \textit{$\epsilon$-Greedy} algorithms and mathematical analysis of \textit{policy evaluation}, \textit{policy iteration} and \textit{policy improvement} in dynamic systems. Moreover, the \textit{Bellman Optimality Equation} for LQR systems was derived by solving the resulting \textit{Algebraic Riccati Equation}. FINISH LAST \par
 	
 	\pagebreak
 	
@@ -125,58 +125,59 @@
 		]
 		
 		\section{Background Research}
-		With the purpose of getting familiar with the core topics of this project, a great portion of the available time was invested in reading the appropriate literature. For the topic of reinforcement learning, the main source of reference was the book titled \enquote*{\textit{Reinforcement Learning: An Introduction}} by Sutton and Barto \cite{reinfbook}. With respect to Linear Quadratic Regulation, the research was mainly based on the article \enquote*{\textit{Reinforcement Learning and Feedback Control}} by Lewis, Vrabie and Vamvoudakis \cite{lqrart}.
+		With the purpose of getting familiar with the core topics of this project, a great portion of the available time was invested in reading the appropriate literature. For the topic of reinforcement learning, the main source of reference was the book titled \enquote*{\textit{Reinforcement Learning: An Introduction}} by Sutton and Barto \cite{reinfbook}. With respect to Linear Quadratic Regulation, the research was mainly based on the article \enquote*{\textit{Reinforcement Learning and Feedback Control}} by Lewis, Vrabie and Vamvoudakis \cite{lqrart}.\par
 		
 		\section{Reinforcement Learning}
-		The concept of reinforcement learning describes the computational process that an agent executes when interacting with the given environment. It provides the \textit{agent} with mathematical algorithms to maximize the long-term return by taking optimal decisions from a set of states and actions that belong to the given \textit{environment}.
+		The concept of reinforcement learning describes the computational process that an agent executes when interacting with the given environment. It provides the \textit{agent} with mathematical algorithms to maximize the long-term return by taking optimal decisions from a set of states and actions that belong to the given \textit{environment}.\par
 		
 		\subsection{System Elements}
-		The reinforcement learning system is composed of three main elements: \enquote{a \textit{policy}, a \textit{reward} and a \textit{value}} \cite{reinfel}. A policy maps the actions that the agent should select to the states of the environment. In simpler words, it determines the way in which the agent should behave in different situations. When an agent selects an action from a state, it collects a numerical value called reward. A reward quantitatively expresses how positive the performance of the action taken at a state was. While a reward represents an immediate acquisition, the \textit{value} of a state provides the information of the total expected reward, or \textit{return}, of the state or state-action pair. Therefore, it can be considered as a quantity that expresses how much the agent can benefit in the long-term.
+		The reinforcement learning system is composed of three main elements: \enquote{a \textit{policy}, a \textit{reward} and a \textit{value}} \cite{reinfel}. A policy maps the actions that the agent should select to the states of the environment. In simpler words, it determines the way in which the agent should behave in different situations. When an agent selects an action from a state, it collects a numerical value called reward. A reward quantitatively expresses how positive the performance of the action taken at a state was. While a reward represents an immediate acquisition, the \textit{value} of a state provides the information of the total expected reward, or \textit{return}, of the state or state-action pair. Therefore, it can be considered as a quantity that expresses how much the agent can benefit in the long-term.\par
 		
 		\subsection{K-arm Bandit Problem}
-		A good example that illustrates these concepts in practice is the \textit{k-arm bandit problem}. In this scenario, the aim of the agent is to maximize its return by pulling the desired arm, among the k number of arms, from the bandit, at each finite discrete step, or turn.  
-		
-		To solve this problem, two simple methods can be implemented. These are the \textit{greedy} method and the \textit{$\epsilon$-greedy} method.
+		A good example that illustrates these concepts in practice is the \textit{k-arm bandit problem}. In this scenario, the aim of the agent is to maximize its return by pulling the desired arm, among the k number of arms, from the bandit, at each finite discrete step, or turn. To solve this problem, two simple methods can be implemented. These are the \textit{greedy} method and the \textit{$\epsilon$-greedy} method. \par
 		
 		\subsubsection{Greedy Method}
+		The greedy method represents a policy where the agent always chooses the action that has the highest expected reward. In the case of the k-arm bandit problem, the expected reward of an action, or \textit{value} $Q_t(a)$, can be expressed with equation (1), where $a \in A$ and $k$ represents the number of times that the actions was selected before the current time $t$. \par
 		
+		\begin{equation}
+			Q_t(a) = \frac{R_1 + R_2 + ... + R_{K_a}}{K_a}
+		\end{equation}
 		
+		The equation shows that every time the action, or arm, is selected by the agent, its value is updated by averaging all the past collected rewards. This means that if an action was selected an infinite amount of times, $k\to\infty$, its value would eventually converge to its \textit{actual} value $Q_*(a)$. Therefore, at every turn, the agent will pull the arm that returned the most profit in past experiences. This can be represented by (2). \par
 		
 		\begin{equation}
 			Q_t(A_t^*) = max_a Q_t(a)
 		\end{equation}
 		
-		The action-value of an action can be computed from the following equation (2):
+		However, as in many real cases, the bandit problem is a stochastic system where the immediate reward has a probability distribution, or noise, that might negatively affect the agent's short-sighted decisions. An agent could be ignoring the optimal action only based on few past experiences and never come back to it again. To further demonstrate this, a simulation of this example was performed by creating a MATLAB function called \textit{greedy}, Appendix A. The greedy function's inputs are, the number of bandits, the number of actions, the number of turns, the Gaussian distribution parameters to set the actual action values and the Gaussian distribution parameters to set the noise for every immediate reward. For this simulation, the initial actual values $Q_*(a)$ for all $a \in A$ were selected from a set of numbers from a Gaussian distribution $\mathcal{N}(0,1)$. In addition to this, Gaussian noise $\mathcal{N}(0,3)$ was added to all immediate rewards $r \in R$. For a more accurate evaluation, the results for the 15-arm bandit problem were averaged over 1000 bandits. Figure 1 illustrates how often the agent converged to the optimal action $a^*$, over a 1000 steps. \par
 		
-		\begin{equation}
-			Q_t(a) = \frac{R_1 + R_2 + ... + R_{K_a}}{K_a}
-		\end{equation}
-
-		The equation states that the action-value of an action at a particular time-step is determined by the total reward accumulated, divided by the number times that it was selected in the past. In this simulation, the probability distribution that was used for the immediate actions' rewards was a Gaussian distribution $\mathcal{N}$(0,1). Due to the nature of this distribution, if an action was selected infinite times, its action-value would eventually converge to its \textit{actual} value, $q_*$.
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{allplot2.eps}
+			\captionof{figure}{Optimal action percentage}
+		\end{Figure}
 		
-		\subsubsection{Simulation}
-		To test this algorithm, the \textit{actual} values for each of the actions were set by selecting numbers from a $\mathcal{N}$(0,1) distribution. Following this, the action-values were initialized by adding Gaussian noise of the form $\mathcal{N}$(0,1). To test the performance of the greedy algorithm, the simulation was first run for 300 steps from a bandit problem with 5 possible actions and averaged over 300 bandits. In Figure (1), we can see the average return from simulating an 5-bandit problem with a range of 5 actions over 300 steps.
-
-		It can be observed that the greedy method performs around 0.2 worse than the optimal solution in average. A better way of analyzing the performance of the greedy algorithm can be computed by observing the percentage of the times that the agent chose the optimal action. This is shown in Figure (2).
-
+		From the graph above, it can be seen that greedy algorithm led the agent to converge to the optimal action in around $\%35$ of the cases. To improve the performance of the agent in the long term, it is possible to use a slight variation of this method called the \textit{$\epsilon$-Greedy} method. \par
 		
-		It can be observed above that the agent converges to the optimal action in around 70 percent of the bandit tasks. This simulation shows that although being very simple, the greedy algorithm shows an overall positive performance.
+		\subsubsection{-Greedy}
 		
-		\subsection{$\epsilon$-Greedy}
-		\subsubsection{Theory}
 		From the previous subsection, the theory and implementation of the greedy algorithm were shown. In this section, a variation of the greedy algorithm called $\epsilon$-Greedy will be explored. One of the issues from the $\epsilon$-Greedy was that because it always forced the agent to choose the best action-value in every state, if a particular action-value was low from the start, the agent never chose it for the rest of the simulation, therefore, never being able to discover its \textit{actual} value. To avoid this problem, a variant of this algorithm that allows the agent to \textit{explore} from time to time can be used. In every state, the agent will randomly choose an action with equal probability in all of them. This means that because if an action is chosen infinite times it converges to its textit{actual} value, this will allow the agent to have a more precise information of its options. This algorithm is called $\epsilon$-Greedy.
 		
-		\subsubsection{Simulation}
 		The first simulation was created by using an $\epsilon$ of 0.1. The 5-bandit problem was run for 600 steps and averaged over 300 tasks. The result was then compared to the optimal return. This can be seen in the figure below.
-
+	
+		\begin{Figure}
+			\centering
+			\includegraphics[width=\linewidth]{allplots1.eps}
+			\captionof{figure}{Optimal action percentage}
+		\end{Figure}
 		
-		From the graph above, we can see that opposed to the greedy algorithm, the average reward gets closer to the optimal average reward as the number of steps increases. In theory, as the number of steps goes to infinity, the average reward would converge to the optimal reward. \\
+		From the graph above, we can see that opposed to the greedy algorithm, the average reward gets closer to the optimal average reward as the number of steps increases. In theory, as the number of steps goes to infinity, the average reward would converge to the optimal reward. 
 		
 		Following this, a plot showing the percentage in which the agent converged to choose the optimal value is shown below.
 		
 
 		
-		From analyzing the graph above, we can see that as we reach step 600, the optimal action percentage reaches around 90 percent. This is because we allow the agent to explore for 10 percent of the time. This means that although 10 percent of the time the action might not receive the maximum immediate reward, it will aid the agent to get a more precise estimate of the real value. \\
+		From analyzing the graph above, we can see that as we reach step 600, the optimal action percentage reaches around 90 percent. This is because we allow the agent to explore for 10 percent of the time. This means that although 10 percent of the time the action might not receive the maximum immediate reward, it will aid the agent to get a more precise estimate of the real value. 
 		
 		For the last e-greedy simulation, an epsilon value of 0.01 was used. The first simulation compares the average return of this particular e-greedy algorithm against the optimal return.
 		
@@ -200,7 +201,7 @@
 		In order to converge to the $v_\pi$ of each state we can iterate over the episodic system many times. This concept is called \textit{policy iteration}.
 		
 		\subsubsection{Gridworld example}
-		Policy iteration can be applied in the gridworld scenario.
+		Policy iteration can be applied in the gridworld scenario. \cite{Woer}
 		
 		
 		
